@@ -515,7 +515,8 @@ class _ImageButtonState extends State<ImageButton> {
   FileType _pickingType = FileType.any;
 
   Future<String?> _pickImage(ImageSource source) async {
-    final PickedFile? pickedFile = await _picker.getImage(source: source);
+    // final PickedFile? pickedFile = await _picker.getImage(source: source);
+    final File pickedFile = await ImagePicker.pickImage(source: source);
     if (pickedFile == null) return null;
 
     final File file = File(pickedFile.path);
